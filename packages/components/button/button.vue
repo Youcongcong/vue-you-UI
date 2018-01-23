@@ -1,13 +1,19 @@
 <template>
     <button
         :type="htmlType"
-        @click="handleClick">
+        @click="handleClick"
+        :class="classes"
+        >
+        <span v-if="showSlot" ref="slot"><slot></slot></span>
     </button>
 </template>
+<style lang="less">
+     @import './button.less';
+</style>
 <script>
     import {  $oneOf } from '../../untils/assits.js';
 
-    const prefixCls = 'ivu-btn';
+    const preCls = 'you-btn';
 
     export default {
         name: 'Button',
@@ -34,7 +40,13 @@
             };
         },
         computed: {
-            
+            classes(){
+                return [
+                    `${preCls}`,{
+                        [ `${preCls}-${this.type}`]:!!this.type
+                    }
+                ]
+            }
         },
         methods: {
             handleClick (event) {
@@ -42,6 +54,7 @@
             }
         },
         mounted () {
+            this.showSlot = this.$slots.default !== undefined
         }
     };
 </script>
