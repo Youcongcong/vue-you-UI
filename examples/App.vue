@@ -1,5 +1,6 @@
 <style lang="less">
     @import "../packages/style/common/normalize.less";
+    @import "../packages/style/iconfont/ionicons.less";
 </style>
 <style scoped>
 nav { margin-bottom: 40px; }

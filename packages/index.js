@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import Button from './components/button/index'
-
+import Icon from './components/icon/index'
 const components = {
-    Button
+    Button,
+    Icon
 }
 
 const youUI = {
