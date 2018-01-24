@@ -16,9 +16,8 @@
     font-size: 12px;
     border-radius: 4px;
     transition: color 0.2s linear, background-color 0.2s linear, border 0.2s linear, box-shadow 0.2s linear;
-    color: #495060;
-    background-color: #f7f7f7;
-    border-color: #dddee1;
+    
+    .color-bgc-borc(#495060,#f7f7f7,#dddee1)
 }
 .you-btn-primary{
     .color-bgc-borc(#fff,#2d8cf0,#2d8cf0)
@@ -26,4 +25,25 @@
 }
 .you-btn-warning {
     .color-bgc-borc(#fff,#ff9900,#ff9900)
+}
+.you-btn-circle {
+    border-radius: 32px;
+}
+.you-btn-circle-outline{
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 16px;
+    border-radius: 50%;
+}
+.you-btn.disabled > *, .you-btn[disabled] > * {
+    pointer-events: none;
+}
+.you-btn.disabled, .you-btn[disabled], fieldset[disabled] .you-btn, .you-btn.disabled:hover, .you-btn[disabled]:hover, fieldset[disabled] .you-btn:hover, .you-btn.disabled:focus, .you-btn[disabled]:focus, fieldset[disabled] .you-btn:focus, .you-btn.disabled:active, .you-btn[disabled]:active, fieldset[disabled] .you-btn:active, .you-btn.disabled.active, .you-btn[disabled].active, fieldset[disabled] .you-btn.active {
+    color: #bbbec4;
+    background-color: #f7f7f7;
+    border-color: #dddee1;
+}
+.you-btn.disabled, .you-btn[disabled] {
+    cursor: not-allowed;
 }
