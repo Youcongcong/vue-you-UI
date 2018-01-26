@@ -1,0 +1,70 @@
+.yvui-scroll-wrapper {
+    width: auto;
+    margin: 0 auto;
+    position: relative;
+    outline: none;
+    .yvui-scroll-container{
+        overflow-y: scroll;
+    }
+    .yvui-scroll-content{
+        opacity: 1;
+        transition: opacity 0.5s;
+    }
+    .yvui-scroll-loader{
+        text-align: center;
+        padding: 0px;
+        transition: padding 0.5s;
+    }
+    .yvui-scroll-loader-wrapper{
+        position: relative;
+        height: 0;
+        background-color: inherit;
+        transform: scale(0);
+        transition: opacity .3s, transform .5s, height .5s;
+    }
+    .yvui-scroll-spinner{
+        position: relative;
+    }
+    .yvui-scroll-spinner-icon {
+        color: #2d8cf0;
+        vertical-align: middle;
+        text-align: center;
+        animation: ani-demo-spin 1s linear infinite;
+    }
+    .yvui-scroll-loader-text{
+        color: #2d8cf0;
+        text-align: center;
+        font-size:12px
+    }
+    .yvui-spin-fix{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 8;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    .yvui-spin-main{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .yvui-scroll-loader-wrapper-active{
+        height: 30px;
+        transform: scale(1);
+    }
+}
+@keyframes ani-demo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

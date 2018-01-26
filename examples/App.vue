@@ -15,6 +15,7 @@ li + li { border-left: solid 1px #bbb; padding-left: 10px; margin-left: 10px; }
         <nav>
             <ul>
                 <li><router-link to="/button">Button</router-link></li>
+                <li><router-link to="/scroll">Scroll</router-link></li>
             </ul>
         </nav>
         <router-view></router-view>

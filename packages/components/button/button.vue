@@ -44,7 +44,7 @@
             },
             size:{
                 validator (value) {
-                    return $oneOf(value, ['small', 'large', 'reset']);
+                    return $oneOf(value, ['small', 'middle', 'large']);
                 }
             }
             
@@ -60,6 +60,7 @@
                     `${preCls}`,{
                         [ `${preCls}-${this.type}`]:!!this.type,
                         [ `${preCls}-${this.border}`]:!!this.border,
+                        [ `${preCls}-${this.size}`]:!!this.size
                     }
                 ]
             }

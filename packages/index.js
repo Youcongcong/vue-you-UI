@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import Button from './components/button/index'
 import Icon from './components/icon/index'
+import Scroll from './components/scroll/index'
 const components = {
     Button,
-    Icon
+    Icon,
+    Scroll
 }
 
 const youUI = {
