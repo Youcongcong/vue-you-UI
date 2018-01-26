@@ -10,7 +10,7 @@
     export default {
         name: 'Icon',
         props: {
-            type: String,
+            type: String,  //icon className
             size: [Number, String],
             color: String
         },
