@@ -123,23 +123,7 @@
                     this.lastY = document.body.scrollTop;
                 }, false);
             },
-            //通过一个dom对象进行初始化  
-            init() {
-                var class_clone = function(source) {
-                    var result = {};
-                    for (var key in source) {
-                        result[key] = typeof source[key] === "object" ? class_clone(source[key]) : source[key];
-                    }
-                    return result;
-                }
-                //var self = class_clone(touch_screen.direction);
-                this.object =this.$refs.scrollContainer;
-                if (!this.object) {
-                    alert('bind_object is not an object');
-                    return false;
-                }
-                this.start();
-            }
+            
     },
     watch: {
             loading(val, old) {
