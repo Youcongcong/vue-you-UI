@@ -3,12 +3,14 @@ import Button from './components/button/index'
 import Icon from './components/icon/index'
 import Scroll from './components/scroll/index'
 import Radio from './components/radio/index'
+import Checkbox from './components/checkbox/index'
 const components = {
     Button,
     Icon,
     Scroll,
     Radio,
     RadioGroup: Radio.Group,
+    Checkbox
 }
 
 const youUI = {
@@ -27,7 +29,7 @@ const install = function(Vue, opts = {}) {
 
     
 };
-install(Vue);
+//install(Vue);
 
 const API = {
     install,
