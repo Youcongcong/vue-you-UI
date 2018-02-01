@@ -6,7 +6,7 @@ Vue.use(Router)
 import button from '../components/button.vue';
 import scroll from '../components/scroll.vue';
 import radio from '../components/radio.vue';
-
+import checkbox from '../components/checkbox.vue';
 
 export default new Router({
     routes: [
@@ -21,6 +21,9 @@ export default new Router({
         {
             path:'/radio',
             component: radio,
+        },{
+            path:'/checkbox',
+            component: checkbox,
         }
     ]
 })
