@@ -5,7 +5,7 @@
                 <input
                     v-if="group"
                     type="checkbox"
-                    :class="inputclasses"
+                    :class="inputclasse"
                     :disabled="disabled"
                     :value="label"
                     v-model="model"
@@ -16,7 +16,7 @@
                 <input
                     v-else
                     type="checkbox"
-                    :class="inputclasses"
+                    :class="inputclasse"
                     :disabled="disabled"
                     :checked="currentValue"
                     :name="name"
@@ -49,7 +49,15 @@
             },
             name:{
                 type:String
-            }
+            },
+            trueValue: {
+                type: [String, Number, Boolean],
+                default: true
+            },
+            falseValue: {
+                type: [String, Number, Boolean],
+                default: false
+            },
         },
         computed:{
             wrapClasses () {
@@ -81,13 +89,43 @@
                     }
                 ];
             },
-            inputClasses () {
+            inputclasse () {
                 return `${prefixCls}-input`;
             }
         },
         data(){
             return{
+                group:false,
+                currentValue:this.value,
+                model:[],
+                showSlot:true
+            }
+        },
+        methods:{
+            change(){
+                if (this.disabled) {
+                    return false;
+                }
 
+                const checked = event.target.checked;
+                this.currentValue = checked;
+
+                const value = checked ? this.trueValue : this.falseValue;
+                this.$emit('input', value);
+
+               
+            },
+            update(){
+                this.currentValue = this.value === this.trueValue
+            }
+        },
+        watch:{
+            value(val){
+                if (val === this.trueValue || val === this.falseValue) {
+                    this.update();
+                } else {
+                    throw 'Value should be trueValue or falseValue.';
+                }
             }
         }
     }
