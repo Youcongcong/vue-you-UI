@@ -98,7 +98,8 @@
                 group:false,
                 currentValue:this.value,
                 model:[],
-                showSlot:true
+                showSlot:true,
+                parent: findComponent(this, 'CheckboxGroup'),
             }
         },
         methods:{
@@ -112,7 +113,11 @@
 
                 const value = checked ? this.trueValue : this.falseValue;
                 this.$emit('input', value);
-
+                 if (this.group) {
+                    this.parent.change(this.model);
+                } else {
+                    this.$emit('on-change', value);
+                }
                
             },
             update(){
@@ -126,6 +131,19 @@
                 } else {
                     throw 'Value should be trueValue or falseValue.';
                 }
+            }
+        },
+        mounted(){
+            this.parent = findComponent(this, 'CheckboxGroup');
+            if (this.parent) {
+                this.group = true;
+            }
+
+            if (this.group) {
+                this.parent.update();
+            } else {
+                this.update();
+                this.showSlot = this.$slots.default !== undefined;
             }
         }
     }

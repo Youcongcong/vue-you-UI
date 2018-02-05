@@ -10,7 +10,8 @@ const components = {
     Scroll,
     Radio,
     RadioGroup: Radio.Group,
-    Checkbox
+    Checkbox,
+    CheckboxGroup:Checkbox.Group
 }
 
 const youUI = {
