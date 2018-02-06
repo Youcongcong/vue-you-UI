@@ -7,6 +7,8 @@ import button from '../components/button.vue';
 import scroll from '../components/scroll.vue';
 import radio from '../components/radio.vue';
 import checkbox from '../components/checkbox.vue';
+import loading from '../components/loading.vue';
+
 
 export default new Router({
     routes: [
@@ -24,6 +26,9 @@ export default new Router({
         },{
             path:'/checkbox',
             component: checkbox,
+        },{
+            path:'/loading',
+            component: loading,
         }
     ]
 })
