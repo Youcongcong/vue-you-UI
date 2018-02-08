@@ -1,0 +1,42 @@
+.yui-switch-checked {
+    border-color: #2d8cf0 !important;
+    background-color: #2d8cf0 !important;
+}
+.yui-switch {
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+    line-height: 22px;
+    border-radius: 24px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease-in-out;
+}
+.yui-switch-checked .yui-switch-inner {
+    left: 8px;
+}
+.yui-switch-inner {
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    left: 25px;
+}
+.yui-switch-checked:after {
+    left: 25px;
+}
+.yui-switch:after {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border-radius: 20px;
+    background-color: #fff;
+    position: absolute;
+    /* left: 1px; */
+    top: 0px;
+    cursor: pointer;
+    transition: left 0.2s ease-in-out, width 0.2s ease-in-out;
+}

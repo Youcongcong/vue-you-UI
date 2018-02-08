@@ -19,6 +19,7 @@ li + li { border-left: solid 1px #bbb; padding-left: 10px; margin-left: 10px; }
                 <li><router-link to="/radio">Radio</router-link></li>
                 <li><router-link to="/checkbox">Checkbox</router-link></li>
                 <li><router-link to="/loading">loading</router-link></li>
+                <li><router-link to="/aswitch">Switch</router-link></li>
                 
             </ul>
         </nav>

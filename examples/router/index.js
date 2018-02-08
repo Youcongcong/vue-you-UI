@@ -8,7 +8,7 @@ import scroll from '../components/scroll.vue';
 import radio from '../components/radio.vue';
 import checkbox from '../components/checkbox.vue';
 import loading from '../components/loading.vue';
-
+import aswitch from '../components/switch.vue';
 
 export default new Router({
     routes: [
@@ -29,6 +29,9 @@ export default new Router({
         },{
             path:'/loading',
             component: loading,
+        },{
+            path:'/aswitch',
+            component: aswitch,
         }
     ]
 })

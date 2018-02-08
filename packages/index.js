@@ -5,6 +5,8 @@ import Scroll from './components/scroll/index'
 import Radio from './components/radio/index'
 import Checkbox from './components/checkbox/index'
 import Loading from './components/loading/index'
+import Switch from './components/switch/index'
+
 const components = {
     Button,
     Icon,
@@ -13,7 +15,8 @@ const components = {
     RadioGroup: Radio.Group,
     Checkbox,
     CheckboxGroup:Checkbox.Group,
-    Loading
+    Loading,
+    ySwitch: Switch,
 }
 
 const youUI = {
