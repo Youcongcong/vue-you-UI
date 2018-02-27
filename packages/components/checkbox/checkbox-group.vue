@@ -37,7 +37,7 @@
                 this.$emit('on-change', data);
             }
         },
-        mounted(){
+        mounted(){  
             this.update()
         },
         watch: {

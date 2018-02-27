@@ -9,9 +9,15 @@ import radio from '../components/radio.vue';
 import checkbox from '../components/checkbox.vue';
 import loading from '../components/loading.vue';
 import aswitch from '../components/switch.vue';
+import message from '../components/message.vue';
+
 
 export default new Router({
     routes: [
+        {
+            path: '/message',
+            component: message,
+        },
         {
             path: '/button',
             component: button,

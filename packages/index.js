@@ -6,7 +6,7 @@ import Radio from './components/radio/index'
 import Checkbox from './components/checkbox/index'
 import Loading from './components/loading/index'
 import Switch from './components/switch/index'
-
+import  message  from './components/message/message.js'
 const components = {
     Button,
     Icon,
@@ -24,6 +24,7 @@ const youUI = {
     yButton: Button
     
 };
+
 const install = function(Vue, opts = {}) {
     if (install.installed) return;
 
@@ -35,6 +36,9 @@ const install = function(Vue, opts = {}) {
 
     
 };
+Vue.prototype.$dialog = {
+    msg: message,
+}
 //install(Vue);
 
 const API = {

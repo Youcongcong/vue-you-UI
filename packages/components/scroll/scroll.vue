@@ -38,8 +38,8 @@
                 bottomRubberPadding: 0,
                 isLoading: false,
                 object: null,
-                currntY:null,
-                lastY:null
+                currntY: null,
+                lastY: null
             }
         },
         props: {
@@ -106,26 +106,26 @@
                 var self = this;
                 self.object.addEventListener('touchmove', function(e) {
                     this.currntY = document.body.scrollTop;
-                    console.log(this.currntY,'.....')
+                    console.log(this.currntY, '.....')
                     var direct = this.currntY - this.lastY;
     
                     if (direct > 0) {
-                       console.log(1111) 
+                        console.log(1111)
                     } else if (direct < 0) {
-                       console.log(1111) 
+                        console.log(1111)
                     }
     
                     if (this.currntY == 0) {} else if ((this.currntY + window.screen.availHeight) == document.body.clientHeight) {
-                        console.log(3333)  
+                        console.log(3333)
                     }
     
                     //document.getElementById('nav').innerHTML= currntY + "|" + window.screen.availHeight  + "|" + document.body.clientHeight;  
                     this.lastY = document.body.scrollTop;
                 }, false);
             },
-            
-    },
-    watch: {
+    
+        },
+        watch: {
             loading(val, old) {
                 if (val) {
                     this.topRubberPadding = 10
@@ -137,29 +137,29 @@
         },
         mounted() {
             var that = this
-            var addEvent = (function () {
+            var addEvent = (function() {
                 if (window.addEventListener) {
-                    return function (elm, type, handle) {
+                    return function(elm, type, handle) {
                         elm.addEventListener(type, handle, false)
                     }
                 }
                 if (window.attachEvent) {
-                    return function (elm, type, handle) {
+                    return function(elm, type, handle) {
                         elm.attachEvent('on' + type, handle)
                     }
                 }
             })()
             var scrollContainer = this.$refs.scrollContainer;
-            addEvent(scrollContainer,'touchmove', function(e) {
-                    this.currntY = scrollContainer.scrollTop;
-                    if (this.currntY == 0) {
-                        that.topLoad()
-                    } else if ((scrollContainer.scrollHeight - scrollContainer.scrollTop === scrollContainer.clientHeight)) {
-                        that.bottomLoad() 
-                    }
+            addEvent(scrollContainer, 'touchmove', function(e) {
+                this.currntY = scrollContainer.scrollTop;
+                if (this.currntY == 0) {
+                    that.topLoad()
+                } else if ((scrollContainer.scrollHeight - scrollContainer.scrollTop === scrollContainer.clientHeight)) {
+                    that.bottomLoad()
+                }
     
-                }, false);
-            //this.init()
+            }, false);
+            // this.init()
             // var scrollContainer = this.$refs.scrollContainer;
             // bindScrollAction(scrollContainer, this.topLoad, this.bottomLoad)
     
