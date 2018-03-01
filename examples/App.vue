@@ -2,47 +2,46 @@
     @import "../packages/style/common/normalize.less";
     @import "../packages/style/iconfont/ionicons.less";
 </style>
-<style scoped>
-nav { margin-bottom: 40px; }
-ul { display: flex; flex-wrap: wrap; }
-li { display: inline-block; }
-li + li { border-left: solid 1px #bbb; padding-left: 10px; margin-left: 10px; }
-.container{ padding: 10px 40px 0; }
-.v-link-active { color: #bbb; }
-</style>
+
+                            
+                
+    
 <template>
-    <div class="container">
-        <nav>
-            <ul>
-                <li><router-link to="/button">Button</router-link></li>
-                <li><router-link to="/scroll">Scroll</router-link></li>
-                <li><router-link to="/radio">Radio</router-link></li>
-                <li><router-link to="/checkbox">Checkbox</router-link></li>
-                <li><router-link to="/loading">loading</router-link></li>
-                <li><router-link to="/aswitch">Switch</router-link></li>
-                <li><router-link to="/message">message</router-link></li>
-                
-                
-            </ul>
-        </nav>
-        <router-view></router-view>
-    </div>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
+
 <script>
-    export default {
-        data: function() {
-            return {
-
-            }
-        },
-        mounted: function() {
-
-        },
-        beforeDestroy: function() {
-
-        },
-        methods: {
-
-        }
-    }
+export default {
+  name: 'app'
+}
 </script>
+
+<style>
+body {
+  margin: 0 auto;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+.header {
+  width:100%;
+  height:44px;
+  background:#0058f1;
+  color:#fff;
+  line-height:44px;
+  text-align: center;
+}
+.header .left {
+  position: absolute;
+  font-size: 20x;
+  font-weight: bold;
+  padding: 0px 20px;
+}
+</style>
+

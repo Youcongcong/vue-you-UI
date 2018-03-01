@@ -11,10 +11,23 @@ import loading from '../components/loading.vue';
 import aswitch from '../components/switch.vue';
 import message from '../components/message.vue';
 
+import Index from '../components/index.vue';
+import PageTransition from '../components/PageTransition.vue'
 
+Router.prototype.goBack = function (vue, router) {
+    this.isBack = true
+    vue.$router.push(router)
+}
 export default new Router({
-    routes: [
+    routes:[
         {
+          path: '/',
+          name: 'PageTransition',
+          component: PageTransition,
+          children: [{
+            path: '',
+            component: Index
+          }, {
             path: '/message',
             component: message,
         },
@@ -38,6 +51,7 @@ export default new Router({
         },{
             path:'/aswitch',
             component: aswitch,
+        }]
         }
-    ]
+      ]
 })

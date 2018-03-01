@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div class="header">
+            <div class="left" @click="goback"><</div>
+        <div class="title">button</div>
+        </div>
         <Button>Default</Button>
         <Button disabled type="primary">Default</Button>
         <Button type="primary">Primary</Button>
@@ -13,6 +17,10 @@
 </template>
 <script>
     export default {
-
+        methods: {
+            goback () {
+                this.$router.goBack(this,'/')
+            }
+        }
     }
 </script>
