@@ -3,6 +3,7 @@ let origData = ''
 const install = (Vue) => {
     Vue.directive('cplace', {
         bind(el, binding, vnode) {
+            console.log(el.tagName)
             //绑定的数据源
             origData = binding.value.data
             //初始化没有数据时 背景填充阴影
@@ -24,14 +25,23 @@ const install = (Vue) => {
                 _placeholder += '"></div>'
                 el.innerHTML = _placeholder
             } else {
-                el.innerHTML = binding.value.data
+                if(el.tagName == 'IMG'){
+                    el.setAttribute("src", binding.value.data)
+                }else{
+                    el.innerHTML = binding.value.data
+                }
             }
         },
         update (el, binding) {
             if (el.children[0] && binding.value.data !== origData) {
               el.children[0].style.opacity = 0
               setTimeout(() => {
-                el.innerHTML = binding.value.data
+                if(el.tagName == 'IMG'){
+                    el.setAttribute("src", binding.value.data)
+                }else{
+                    el.innerHTML = binding.value.data
+                    
+                }
               }, 300)
             }
         }

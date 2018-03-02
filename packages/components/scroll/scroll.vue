@@ -1,173 +1,184 @@
 <template>
-    <div class="yvui-scroll-wrapper">
-        <div class="yvui-scroll-container" :style="{height:height+'px'}" ref="scrollContainer" id="scrollContainer">
-            <!--上拉loading-->
-            <div class="yvui-scroll-loader" ref="topLoad" :style="{paddingTop: wrapperPadding.paddingTop}">
-                <div :class="loadbarClass">
-                    <div class="yvui-spin-main">
-                        <Icon type="load-c" size="18" class="yvui-scroll-spinner-icon"></Icon>
-                        <div v-if="loadingText" class="yvui-scroll-loader-text">{{loadingText}}</div>
-                    </div>
-                </div>
-            </div>
-            <!--列表内容-->
-            <div class="yvui-scroll-content" ref="scrollContent">
-                <slot></slot>
-            </div>
-            <!--下拉loading-->
-            <div class="yvui-scroll-loader" ref="bottomLoad">
-                <div :class="bomClass">
-                    <div class="yvui-spin-main">
-                        <Icon type="load-c" size="18" class="yvui-scroll-spinner-icon"></Icon>
-                        <div v-if="loadingText" class="yvui-scroll-loader-text">{{loadingText}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="van-pull-refresh">
+    <div
+      class="van-pull-refresh__track"
+      :style="style"
+      @touchstart="onTouchStart"
+      @touchmove="onTouchMove"
+      @touchend="onTouchEnd"
+      @touchcancel="onTouchEnd"
+    >
+      <div class="van-pull-refresh__head">
+        <slot name="normal" v-if="status === 'normal'"/>
+        <slot name="pulling" v-if="status === 'pulling'">
+          <span class="van-pull-refresh__text">{{ pullingText  }}</span>
+        </slot>
+        <slot name="loosing" v-if="status === 'loosing'">
+          <span class="van-pull-refresh__text">{{ loosingText  }}</span>
+        </slot>
+        <slot name="loading" v-if="status === 'loading'">
+          <div class="van-pull-refresh__loading">
+            
+            <span>{{ loadingText   }}</span>
+          </div>
+        </slot>
+      </div>
+      <slot />
     </div>
+  </div>
 </template>
 
 <script>
-    const preCls = 'yvui-scroll';
-    import bindScrollAction from '../../../packages/untils/scroll.js'
-    export default {
-        name: 'Scroll',
-        data() {
-            return {
-                topRubberPadding: 0,
-                bottomRubberPadding: 0,
-                isLoading: false,
-                object: null,
-                currntY: null,
-                lastY: null
-            }
-        },
-        props: {
-            loading: false,
-            boloading: false,
-            height: {
-                type: [String, Number],
-                default: 300
-            },
-            bottomLoad: {
-                type: Function
-            },
-            topLoad: {
-                type: Function
-            },
-            loadingText: {
-                type: String,
-                default: '加载中'
-            },
-    
-        },
-        computed: {
-            wrapperPadding() {
-                return {
-                    paddingTop: this.topRubberPadding + 'px',
-                    paddingBottom: this.bottomRubberPadding + 'px'
-                }
-            },
-            loadbarClass() {
-                return [
-                    `${preCls}-loader-wrapper`,
-                    {
-                        [`${preCls}-loader-wrapper-active`]: this.loading
-                    }
-                ];
-            },
-            bomClass() {
-                return [
-                    `${preCls}-loader-wrapper`,
-                    {
-                        [`${preCls}-loader-wrapper-active`]: this.boloading
-                    }
-                ];
-            }
-        },
-        methods: {
-            test() {
-                console.log(1)
-            },
-            start() {
-                var self = this,
-                    obj = self.object;
-                obj.addEventListener('touchstart', function(e) {
-                    self.move();
-                    console.log('touchstart---')
-                }, false);
-                obj.addEventListener('touchend', function(e) {
-                    this.lastY = document.body.scrollTop;
-                    console.log('touchend---')
-                }, false);
-            },
-            //拖动滑动时  
-            move() {
-                var self = this;
-                self.object.addEventListener('touchmove', function(e) {
-                    this.currntY = document.body.scrollTop;
-                    console.log(this.currntY, '.....')
-                    var direct = this.currntY - this.lastY;
-    
-                    if (direct > 0) {
-                        console.log(1111)
-                    } else if (direct < 0) {
-                        console.log(1111)
-                    }
-    
-                    if (this.currntY == 0) {} else if ((this.currntY + window.screen.availHeight) == document.body.clientHeight) {
-                        console.log(3333)
-                    }
-    
-                    //document.getElementById('nav').innerHTML= currntY + "|" + window.screen.availHeight  + "|" + document.body.clientHeight;  
-                    this.lastY = document.body.scrollTop;
-                }, false);
-            },
-    
-        },
-        watch: {
-            loading(val, old) {
-                if (val) {
-                    this.topRubberPadding = 10
-                } else {
-                    this.topRubberPadding = 0
-                }
-            },
-    
-        },
-        mounted() {
-            var that = this
-            var addEvent = (function() {
-                if (window.addEventListener) {
-                    return function(elm, type, handle) {
-                        elm.addEventListener(type, handle, false)
-                    }
-                }
-                if (window.attachEvent) {
-                    return function(elm, type, handle) {
-                        elm.attachEvent('on' + type, handle)
-                    }
-                }
-            })()
-            var scrollContainer = this.$refs.scrollContainer;
-            addEvent(scrollContainer, 'touchmove', function(e) {
-                this.currntY = scrollContainer.scrollTop;
-                if (this.currntY == 0) {
-                    that.topLoad()
-                } else if ((scrollContainer.scrollHeight - scrollContainer.scrollTop === scrollContainer.clientHeight)) {
-                    that.bottomLoad()
-                }
-    
-            }, false);
-            // this.init()
-            // var scrollContainer = this.$refs.scrollContainer;
-            // bindScrollAction(scrollContainer, this.topLoad, this.bottomLoad)
-    
-        }
-    
-    }
-</script>
+import scrollUtils from '../../untils/scroll.js';
 
+export default {
+  name: 'Scroll',
+
+  props: {
+    pullingText: {
+      type:String,
+      default:'下拉即可刷新'
+    },
+    loosingText: {
+      type:String,
+      default:'释放即可刷新'
+    },
+    loadingText: {
+      type:String,
+      default:'加载中...'
+    },
+    value: {
+      type: Boolean,
+      required: true
+    },
+    animationDuration: {
+      type: Number,
+      default: 300
+    },
+    headHeight: {
+      type: Number,
+      default: 50
+    }
+  },
+
+  data() {
+    return {
+      status: 'normal',
+      height: 0,
+      duration: 0
+    };
+  },
+
+  computed: {
+    style() {
+      return {
+        transition: `${this.duration}ms`,
+        transform: `translate3d(0,${this.height}px, 0)`
+      };
+    }
+  },
+
+  mounted() {
+    this.scrollEl = scrollUtils.getScrollEventTarget(this.$el);
+    console.log(this.scrollEl)
+  },
+
+  watch: {
+    value(val) {
+      if (!val) {
+        this.duration = this.animationDuration;
+        this.getStatus(0);
+      }
+    }
+  },
+
+  methods: {
+    onTouchStart(event) {
+      if (this.status === 'loading') {
+        return;
+      }
+      if (this.getCeiling()) {
+        this.duration = 0;
+        this.startX = event.touches[0].clientX;
+        this.startY = event.touches[0].clientY;
+      }
+    },
+
+    onTouchMove(event) {
+      scrollUtils.getScrollTop(this.scrollEl)
+      if (this.status === 'loading') {
+        return;
+      }
+
+      this.deltaY = event.touches[0].clientY - this.startY;
+      this.direction = this.getDirection(event.touches[0]);
+
+      if (!this.ceiling && this.getCeiling()) {
+        this.duration = 0;
+        this.startY = event.touches[0].clientY;
+        this.deltaY = 0;
+      }
+
+      if (this.ceiling && this.deltaY >= 0) {
+        if (this.direction === 'vertical') {
+          this.getStatus(this.ease(this.deltaY));
+          event.preventDefault();
+        }
+      }
+    },
+
+    onTouchEnd() {
+      if (this.status === 'loading') {
+        return;
+      }
+
+      if (this.ceiling && this.deltaY) {
+        this.duration = this.animationDuration;
+        if (this.status === 'loosing') {
+          this.getStatus(this.headHeight, true);
+          this.$emit('input', true);
+          this.$emit('refresh');
+        } else {
+          this.getStatus(0);
+        }
+      }
+    },
+
+    getCeiling() {
+      this.ceiling = scrollUtils.getScrollTop(this.scrollEl) === 0;
+      return this.ceiling;
+    },
+
+    ease(height) {
+      const { headHeight } = this;
+      return height < headHeight
+        ? height
+        : height < headHeight * 2
+          ? Math.round(headHeight + (height - headHeight) / 2)
+          : Math.round(headHeight * 1.5 + (height - headHeight * 2) / 4);
+    },
+
+    getStatus(height, isLoading) {
+      this.height = height;
+
+      const status = isLoading
+        ? 'loading' : height === 0
+          ? 'normal' : height < this.headHeight
+            ? 'pulling' : 'loosing';
+
+      if (status !== this.status) {
+        this.status = status;
+      }
+    },
+
+    getDirection(touch) {
+      const distanceX = Math.abs(touch.clientX - this.startX);
+      const distanceY = Math.abs(touch.clientY - this.startY);
+      return distanceX > distanceY ? 'horizontal' : distanceX < distanceY ? 'vertical' : '';
+    }
+  }
+}
+</script>
 <style lang="less">
     @import './scroll.less';
 </style>
