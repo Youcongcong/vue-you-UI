@@ -8,6 +8,7 @@
             <Checkbox label="1"></Checkbox>
             <Checkbox label="2"></Checkbox>
             <Checkbox label="3"></Checkbox>
+            <Checkbox label="4"></Checkbox>
         </CheckboxGroup>
         {{arr}}
     </div>
