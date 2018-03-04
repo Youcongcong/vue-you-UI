@@ -9,6 +9,7 @@
             <Radio label="北京"></Radio>
             <Radio label="上海"></Radio>
             <Radio label="深圳"></Radio>
+            <Radio label="苏州"></Radio>
             <Radio label="杭州"></Radio>    选中值：{{button2}}
         </Radio-group>
         <div/>
