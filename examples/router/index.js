@@ -10,6 +10,7 @@ import checkbox from '../components/checkbox.vue';
 import loading from '../components/loading.vue';
 import aswitch from '../components/switch.vue';
 import message from '../components/message.vue';
+import dialog from '../components/Dialog.vue';
 
 import Index from '../components/index.vue';
 import PageTransition from '../components/PageTransition.vue'
@@ -34,6 +35,10 @@ export default new Router({
         {
             path: '/button',
             component: button,
+        },
+        {
+            path:'/dialog',
+            component:dialog
         },
         {
             path: '/scroll',

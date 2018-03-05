@@ -7,6 +7,9 @@ import Radio from './components/radio/index'
 import Checkbox from './components/checkbox/index'
 import Loading from './components/loading/index'
 import Switch from './components/switch/index'
+
+import Dialog from './components/dialog/index'
+
 import  message  from './components/message/message.js'
 Vue.use(VueCplace)
 const components = {
@@ -40,8 +43,11 @@ const install = function(Vue, opts = {}) {
 };
 Vue.prototype.$dialog = {
     msg: message,
+    Dialog:Dialog
 }
-//install(Vue);
+if (typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+}
 
 const API = {
     install,
