@@ -1,6 +1,8 @@
 <style lang="less">
     @import "../packages/style/common/normalize.less";
     @import "../packages/style/iconfont/ionicons.less";
+    @import "../packages/style/common/minx.less";
+    
 </style>
 
                             

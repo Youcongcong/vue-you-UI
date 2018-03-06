@@ -5,6 +5,7 @@
         <Radio size="small" label="small"></Radio>
         <div/>
        <br/>
+       <div class="animated-background"></div>
         <Radio-group v-model="button2" type="tab" @on-change="test()">
             <Radio label="北京"></Radio>
             <Radio label="上海"></Radio>
@@ -45,3 +46,6 @@
         }
     }
 </script>
+<style lang="">
+   
+</style>

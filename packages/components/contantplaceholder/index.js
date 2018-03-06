@@ -8,11 +8,10 @@ const install = (Vue) => {
             origData = binding.value.data
             //初始化没有数据时 背景填充阴影
             if (!binding.value.data) {
-                let _placeholder = '<div style="';
+                let _placeholder = '<div class="animated-background" style="';
                 const defaultConfig = {
                     width: '100%',
                     height: '100%',
-                    background: '#eee'
                 };
                 const _configObj = {
                     ...defaultConfig,
@@ -25,23 +24,14 @@ const install = (Vue) => {
                 _placeholder += '"></div>'
                 el.innerHTML = _placeholder
             } else {
-                if(el.tagName == 'IMG'){
-                    el.setAttribute("src", binding.value.data)
-                }else{
-                    el.innerHTML = binding.value.data
-                }
+                el.innerHTML = binding.value.data
             }
         },
         update (el, binding) {
             if (el.children[0] && binding.value.data !== origData) {
               el.children[0].style.opacity = 0
               setTimeout(() => {
-                if(el.tagName == 'IMG'){
-                    el.setAttribute("src", binding.value.data)
-                }else{
-                    el.innerHTML = binding.value.data
-                    
-                }
+                el.innerHTML = binding.value.data
               }, 300)
             }
         }

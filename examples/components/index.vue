@@ -7,6 +7,7 @@
         <li><router-link to="/radio">Radio</router-link></li>
         <li><router-link to="/checkbox">Checkbox</router-link></li>
         <li><router-link to="/loading">loading</router-link></li>
+        <li><router-link to="/SkeletonScreen">Skeleton Screen loading(骨架)</router-link></li>
         <li><router-link to="/aswitch">Switch</router-link></li>
         <li><router-link to="/message">message</router-link></li>
         <li><router-link to="/dialog">dialog</router-link></li>
