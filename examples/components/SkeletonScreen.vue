@@ -1,15 +1,19 @@
 <template>
     <div>
+        <div class="header">
+            <div class="left" @click="goback"><</div>
+            <div class="title">Skeleton Screen</div>
+        </div>
         <div v-for="i in 3" class="lis">
             <h1 v-cplace="{ data: title }"></h1>
             <p v-cplace="{ data: content1 }"></p>
             <p v-cplace="{ data: content2, config }"></p>
-    
             <div class="disfl">
                 <span class="aa" v-cplace="{ data: src }"><img width='50px' height='50px'/></span>
                 <a href="" v-cplace="{ data: gitUrl }"></a>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -34,16 +38,18 @@
             change(status) {
                 console.log(status)
             },
-    
+            goback () {
+                this.$router.goBack(this,'/')
+            }
         },
         mounted() {
             setTimeout(() => {
-                this.title = '测试'
-                this.src = 'https://fuss10.elemecdn.com/b/7e/d1890cf73ae6f2adb97caa39de7fcjpeg.jpeg'
-                this.content1 = 'A Vue directive for occupying '
-                this.content2 = 'It\'s good for user '
-                this.gitUrl = 'Fork me on Github!'
-            }, 1000)
+                this.title = '测试测试测试测试测试'
+                this.src = '测试试'
+                this.content1 = '测试测试测试测试测试测试测试测试测试 '
+                this.content2 = '测试测试测试测试测试测试测试测试测试'
+                this.gitUrl = '测试测试测试测试测试测试测试测试测试'
+            }, 3000)
         }
     }
 </script>
