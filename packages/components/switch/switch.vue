@@ -7,9 +7,7 @@
         </span>
     </span>
 </template>
-<style lang="less">
-    @import './switch.less';
-</style>
+
 <script>
     const preCls = 'yui-switch';
     

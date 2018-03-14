@@ -24,9 +24,7 @@
   </div>
 </template>
 
-<style lang="less">
-  @import './dialog.less';
-</style>
+
 
 <script>
   export default {

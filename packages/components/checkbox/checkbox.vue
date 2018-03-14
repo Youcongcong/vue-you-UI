@@ -27,9 +27,7 @@
             <slot><span v-if="showSlot">{{label}}</span></slot>
         </label>
 </template>
-<style lang="less">
-     @import './checkbox.less';
-</style>
+
 <script>
     import {$oneOf,findComponent} from '../../untils/assits.js';
     const prefixCls = 'yui-checkbox'

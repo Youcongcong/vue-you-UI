@@ -10,9 +10,7 @@
         <span v-if="showSlot" ref="slot"><slot></slot></span>
     </button>
 </template>
-<style lang="less">
-     @import './button.less';
-</style>
+
 <script>
     import {  $oneOf } from '../../untils/assits.js';
 

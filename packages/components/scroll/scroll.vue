@@ -179,6 +179,4 @@ export default {
   }
 }
 </script>
-<style lang="less">
-    @import './scroll.less';
-</style>
+

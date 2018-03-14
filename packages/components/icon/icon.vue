@@ -2,9 +2,7 @@
     <i :class="classes" :style="styles">
     </i>
 </template>
-<style lang="less">
-     @import './icon.less';
-</style>
+
 <script>
     const preCls = 'yui-icon';
     export default {

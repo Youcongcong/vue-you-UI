@@ -16,9 +16,7 @@
             <slot>{{label}}</slot>
         </label>
 </template>
-<style lang="less">
-     @import './radio.less';
-</style>
+
 <script>
     const preCls = 'yui-radio'
     import {  $oneOf ,findComponent} from '../../untils/assits.js';
