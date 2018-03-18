@@ -24,7 +24,7 @@ export function findComponent(childThis,componentName){
     return parent;
 }
 
-
+//向下找对应的组件
 export function findComponentsDownward (context, componentName) {
     return context.$children.reduce((components, child) => {
         if (child.$options.name === componentName) components.push(child);
