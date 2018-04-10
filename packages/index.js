@@ -9,6 +9,8 @@ import Loading from './components/loading/index'
 import Switch from './components/switch/index'
 
 import Dialog from './components/dialog/index'
+import BuyNum from './components/buynum/index'
+
 
 import  message  from './components/message/message.js'
 Vue.use(VueCplace)
@@ -22,6 +24,7 @@ const components = {
     CheckboxGroup:Checkbox.Group,
     Loading,
     ySwitch: Switch,
+    BuyNum
 }
 
 const youUI = {

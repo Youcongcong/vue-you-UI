@@ -11,6 +11,7 @@
         <li><router-link to="/aswitch">Switch</router-link></li>
         <li><router-link to="/message">message</router-link></li>
         <li><router-link to="/dialog">dialog</router-link></li>
+        <li><router-link to="/buynum">buynum</router-link></li>
         
     </ul>
   </div>

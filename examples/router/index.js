@@ -15,6 +15,8 @@ import dialog from '../components/Dialog.vue';
 import Index from '../components/index.vue';
 import PageTransition from '../components/PageTransition.vue'
 import SkeletonScreen from '../components/SkeletonScreen.vue'
+import buynum from '../components/buynum.vue'
+
 
 Router.prototype.goBack = function (vue, router) {
     this.isBack = true
@@ -61,6 +63,9 @@ export default new Router({
         },{
             path:'/aswitch',
             component: aswitch,
+        },{
+            path:'/buynum',
+            component: buynum,
         }]
         }
       ]
