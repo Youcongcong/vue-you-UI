@@ -31,21 +31,22 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    transition: all .8s cubic-bezier(.55, 0, .1, 1);
+    transition: all .5s;
+    /* cubic-bezier(.55, 0, .1, 1) */
   }
   
   .slide-left-enter,
   .slide-right-leave-active {
-    opacity: 0;
-    -webkit-transform: translate(50px, 0);
-    transform: translate(50px, 0);
+    opacity: 1;
+    -webkit-transform: translate(100%, 0);
+    transform: translate(100%, 0);
   }
   
   .slide-left-leave-active,
   .slide-right-enter {
-    opacity: 0;
-    -webkit-transform: translate(-50px, 0);
-    transform: translate(-50px, 0);
+    opacity: 1;
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
   }
   
   .header {

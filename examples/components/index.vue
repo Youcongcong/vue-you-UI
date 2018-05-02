@@ -1,7 +1,7 @@
 <template>
   <div>
     
-     <ul>
+     <ul style="height:100%;background:#ddd">
         <li><router-link to="/button">Button</router-link></li>
         <li><router-link to="/scroll">Scroll</router-link></li>
         <li><router-link to="/radio">Radio</router-link></li>
