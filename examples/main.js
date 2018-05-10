@@ -3,6 +3,9 @@ import App from './App.vue';
 import router from './router';
 import youUI from '../packages/index';
 import  '../packages/style/index.less';
+import demoBlock from './components/demo-block.vue'
+import 'normalize.css/normalize.css'
+Vue.component('demo-block', demoBlock)
 //console.log(youUI)
 Vue.use(youUI);
 

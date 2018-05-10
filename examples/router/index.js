@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import button from '../components/button.vue';
+import button from '../components/test.md';
 import scroll from '../components/scroll.vue';
 import radio from '../components/radio.vue';
 import checkbox from '../components/checkbox.vue';

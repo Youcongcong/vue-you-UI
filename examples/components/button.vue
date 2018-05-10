@@ -1,28 +1,53 @@
 <template>
     <div class="aaa">
-        <div class="header">
-            <div class="left" @click="goback"><</div>
-            <div class="title">button</div>
-        </div>
-        <div>
-            <Button>Default</Button>
-        <Button disabled type="primary">Default</Button>
-        <Button type="primary">Primary</Button>
-        <Button type="warning">warning</Button>
-        <Button type="warning" border="circle">border</Button>
-
-        <Button type="primary" border="circle" iconame="ios-search">search</Button>
-
-        <Button type="primary" border="circle-outline" iconame="ios-search" iconcolor="red"></Button>
-        </div>
+        <pre>
+1231231231231231
+  333333333
+    44444444
+        4555555
+            
+        </pre>
+        <mar></mar>
     </div>
 </template>
 <script>
+    import mar from './test.md'
     export default {
         methods: {
             goback () {
                 this.$router.goBack(this,'/')
             }
+        },
+        components:{
+            mar
         }
     }
 </script>
+<style>
+@import 'highlight.js/styles/color-brewer.css';
+    .tip {
+      padding: 8px 16px;
+      background-color: #ECF8FF;
+      border-radius: 4px;
+      border-left: #50bfff 5px solid;
+      margin: 20px 0;
+
+      code {
+        background-color: rgba(255, 255, 255, .7);
+        color: #445368;
+      }
+    }
+
+    .warning {
+      padding: 8px 16px;
+      background-color: #fff6f7;
+      border-radius: 4px;
+      border-left: #FE6C6F 5px solid;
+      margin: 20px 0;
+
+      code {
+        background-color: rgba(255, 255, 255, .7);
+        color: #445368;
+      }
+    }
+</style>
