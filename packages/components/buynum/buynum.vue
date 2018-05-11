@@ -38,7 +38,7 @@
       },
       limit: {
         type: Number,
-        default: 10
+        default: 99
       }
     },
     computed: {},

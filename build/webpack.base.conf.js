@@ -36,12 +36,12 @@ const vueMarkdown = {
       render: function(tokens, idx) {
 
         var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
-
+        console.log(tokens)
         if (tokens[idx].nesting === 1) {
           var desc = tokens[idx + 2].content;
           const html = utils.convertHtml(striptags(tokens[idx + 1].content, 'script'))
           // 移除描述，防止被添加到代码块
-          tokens[idx + 2].children = [];
+          // tokens[idx + 2].children = [];
 
           return `<demo-block>
                         <div slot="desc">${html}</div>

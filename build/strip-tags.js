@@ -13,6 +13,5 @@ module.exports = (str, tags) => {
   while (len--) {
     $(tags[len]).remove()
   }
-
   return $.html()
 }
