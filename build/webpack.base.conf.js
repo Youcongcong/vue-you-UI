@@ -34,9 +34,7 @@ const vueMarkdown = {
     [require('markdown-it-container'), 'demo', {
       validate: params => params.trim().match(/^demo\s*(.*)$/),
       render: function(tokens, idx) {
-
         var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
-        console.log(tokens)
         if (tokens[idx].nesting === 1) {
           var desc = tokens[idx + 2].content;
           const html = utils.convertHtml(striptags(tokens[idx + 1].content, 'script'))
