@@ -1,9 +1,17 @@
-<template>
-    <Loading v-show="showloading">登录中...</Loading>
-</template>
+
+# Loading
+----
+### 基础用法
+
+
+<Loading v-show="showloading">登录中...</Loading>
+
+::: demo
+```html
+<Loading v-show="showloading">登录中...</Loading>
 
 <script>
-    export default {
+  export default {
         data() {
             return {
                 showloading:true
@@ -17,3 +25,8 @@
         }
     }
 </script>
+```
+
+:::
+
+

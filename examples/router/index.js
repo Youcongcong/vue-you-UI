@@ -7,7 +7,7 @@ import button from '../components/button.md';
 import scroll from '../components/scroll.vue';
 import radio from '../components/radio.md';
 import checkbox from '../components/checkbox.md';
-import loading from '../components/loading.vue';
+import loading from '../components/loading.md';
 import aswitch from '../components/switch.md';
 import message from '../components/message.md';
 import dialog from '../components/Dialog.md';
