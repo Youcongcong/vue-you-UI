@@ -1,5 +1,6 @@
 <template>
     <Scroll v-model="isLoading" @refresh="onRefresh">
+        <p>请切换手机模式查看</p>
         <p> 下拉刷新次数：{{ count }}</p>
     </Scroll>
 </template>
