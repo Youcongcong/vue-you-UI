@@ -10,9 +10,11 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "changeLog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
+    "husky": "^0.14.3",
     "cheerio": "^1.0.0-rc.2",
     "fs": "^0.0.1-security",
     "highlight.js": "^9.12.0",
